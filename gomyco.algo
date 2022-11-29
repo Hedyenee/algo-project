@@ -1,39 +1,27 @@
-ALGORITHM Word_count
-VAR 
-ch : CHAR ;
-numSpace: INTEGER ;
-numVo : INTEGER;
-numChar : INTEGER ;
+ALGORITHM countStr
+VAR
+    str : STRING
+    NB_W , NB_V , NB_C , i : INTEGER
+BEGIN
 
+    write ("enter a string")
+    read (str)
 
+     WHILE (str(i) <> ".") DO
+        NB_C := NB_C+1
+        
+        IF (str(i) = ("a" , "o" , "e" , "i" , "u" , "y" , "A" , "O" , "E" , "I" , "U" , "Y") ) THEN
+            NB_V = NB_V +1
+        END_IF
+        
+        IF (str(i) = " ") THEN
+            NB_W = NB_W +1
+        END_IF
 
-BEGIN 
-t="aeiouAEIOU";
-n=length(ch);
-total=0;
-numSpace=0;
-numVo=0;
-REPEAT
-    print ( " write a sentence:");
-    read (ch);
-UNTIL (ch[i] =".");
+     END_WHILE
 
-FOR i FROM 1 TO n DO
-   total=total+1;
-   if ch[i] ==' ' :
-   numSpace+=1; 
-   if ch[i] in t :
-   numVo+=1;
-   numW=numSpace+1;
-   numChar=total=total-numSpace-1;
+    write (NB_W)
+    write (NB_V)
+    write (NB_C)
 
-END_FOR
-print ("number of char= " +str(numChar));
-print ("number of words= " +str(numW));
-print ("number of vow= " +str(numVo));
-
-
-
-
-
-END 
+END
